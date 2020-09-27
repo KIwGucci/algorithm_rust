@@ -1,7 +1,7 @@
 pub mod sortmods;
 
-fn mysort<T: Ord>(x: &mut [T]) -> () {
-    sortmods::quicksort::sort(x, 0, 0)
+fn mysort<T: Ord>(x: &mut [T]) -> &[T] {
+    sortmods::selectsort::sort(x, 0)
 }
 
 fn main() {
