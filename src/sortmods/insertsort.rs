@@ -1,9 +1,6 @@
-
-
-pub fn sort<T: Ord>(numlist: &mut [T]) -> &[T] {
+pub fn sort<T: Ord>(numlist: &mut [T]) {
     let n = numlist.len();
     if n == 1 {
-        return numlist;
     } else {
         // sort by insertsorting
         // 挿入ソート:左端を処理済みとして次の要素を左と比較
@@ -23,5 +20,4 @@ pub fn sort<T: Ord>(numlist: &mut [T]) -> &[T] {
             }
         }
     }
-    numlist
 }
