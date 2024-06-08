@@ -1,10 +1,10 @@
-pub fn sort<T: Ord>(numlist: &mut [T]) -> () {
+pub fn sort<T: Ord>(numlist: &mut [T]) {
     let endnum = numlist.len() - 1;
     let startnum = 0;
     quicksort(numlist, startnum, endnum);
 }
 
-fn quicksort<T: Ord>(numlist: &mut [T], lq: usize, rq: usize) -> () {
+fn quicksort<T: Ord>(numlist: &mut [T], lq: usize, rq: usize) {
     //実体ではなくmut参照で受け取り変更を加えるので返り値は()
     let numslength = numlist.len();
     let endnum: usize = if rq > 0 { rq } else { numslength - 1 };
@@ -16,9 +16,9 @@ fn quicksort<T: Ord>(numlist: &mut [T], lq: usize, rq: usize) -> () {
     } else if arraylength == 2 {
         if numlist[startnum] > numlist[endnum] {
             numlist.swap(startnum, endnum);
-            return ();
+            return;
         } else {
-            return ();
+            return;
         }
     }
     let pivotposi = endnum;
@@ -36,7 +36,7 @@ fn quicksort<T: Ord>(numlist: &mut [T], lq: usize, rq: usize) -> () {
                     quicksort(numlist, startnum, rmarker);
                     // pivot以降を処理(pivotより大きい数列)
                     quicksort(numlist, rmarker + 1, endnum);
-                    return ();
+                    return;
                 // let rnum = numlist[rmarker];
                 } else if numlist[rmarker] < numlist[pivotposi] {
                     // 右マーカがpivotより小さい時
@@ -48,5 +48,4 @@ fn quicksort<T: Ord>(numlist: &mut [T], lq: usize, rq: usize) -> () {
         }
     }
     quicksort(numlist, startnum, endnum - 1);
-    return ();
 }

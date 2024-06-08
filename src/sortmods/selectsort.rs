@@ -10,20 +10,18 @@ fn minimum_index<T: Ord>(numlist: &[T]) -> usize {
     min_index
 }
 
-pub fn sort<T: Ord>(numlist: &mut [T]) -> () {
+pub fn sort<T: Ord>(numlist: &mut [T]) {
     // sort numlist with select sort
     let n = numlist.len();
 
     // 選択ソート
     // リストの中で最小の値を選択肢左端に持っていく。
     // 本来は線形探索で最小値を見つけるがここでは組み込み関数を使う
-    if n == 0{
-        ()
+    if n == 0 {
     } else {
         let min_index = minimum_index(numlist);
         numlist.swap(0, min_index);
-        let (_head,tail) = numlist.split_first_mut().unwrap();
+        let (_head, tail) = numlist.split_first_mut().unwrap();
         sort(tail);
-        ()
     }
 }
