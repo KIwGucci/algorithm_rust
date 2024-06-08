@@ -68,6 +68,7 @@ impl<T: Ord + Clone> MyBina<T> {
             if self.data[current] < self.data[left] {
                 self.data.swap(current, left);
             }
+            self.sorted_swap(left);
             self.sorted_swap_child(left);
         };
 
@@ -101,5 +102,6 @@ pub fn sort<R: Ord + Debug + Clone>(x: &mut [R]) -> Vec<R> {
             None => break 'l,
         }
     }
+    sort_vec.reverse();
     sort_vec
 }
